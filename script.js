@@ -156,7 +156,7 @@ function initializeButtons() {
     meditationBtn.addEventListener('click', () => {
         // Change background to meditation colors
         document.body.style.background = 'linear-gradient(45deg, #2c1810, #3d2914, #4a3419)';
-        showNotification('🧘‍♂️ Entering meditation mode... Inner peace achieved!');
+        showNotification('🧘‍♂️ Tu Tâm Dưỡng Tính đi chời ơiii');
         
         // Add meditation effects
         setTimeout(() => {
@@ -173,7 +173,7 @@ function initializeButtons() {
                 createSparkle(x, y);
             }, i * 100);
         }
-        showNotification('🙏 Buddha\'s blessing sent! May your code be bug-free!');
+        showNotification('🙏 Nằm mơ đi con!');
     });
     
     wisdomBtn.addEventListener('click', () => {
@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Welcome message
     setTimeout(() => {
-        showNotification('🙏 Welcome to Buddha\'s Debugging Temple! Click the buttons for divine interventions!');
+        showNotification('🙏 Hẹ Hẹ');
     }, 5000);
 });
 
