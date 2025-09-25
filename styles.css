@@ -1,0 +1,399 @@
+/* Reset và Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    overflow-x: hidden;
+    background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    min-height: 100vh;
+    color: #fff;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #0f0f23, #1e1e3f, #2d2d5f);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: loadingBg 3s ease infinite;
+}
+
+@keyframes loadingBg {
+    0%, 100% { background: linear-gradient(45deg, #0f0f23, #1e1e3f, #2d2d5f); }
+    50% { background: linear-gradient(45deg, #2d2d5f, #1e1e3f, #0f0f23); }
+}
+
+.spinner {
+    width: 80px;
+    height: 80px;
+    border: 4px solid rgba(255, 215, 0, 0.3);
+    border-top: 4px solid #ffd700;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+    box-shadow: 0 0 30px #ffd700;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading-screen p {
+    font-size: 1.2rem;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+/* Particles Canvas */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glow Effect */
+.glow-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: glowPulse 4s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes glowPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+    50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.6; }
+}
+
+/* Title Styles */
+.main-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 20px rgba(255, 215, 0, 0.8);
+}
+
+.title-part1 {
+    display: block;
+    color: #ffd700;
+    animation: titleGlow 3s ease-in-out infinite;
+    margin-bottom: 0.5rem;
+}
+
+.title-part2 {
+    display: block;
+    color: #ff6b6b;
+    font-size: 0.7em;
+    animation: titleGlow2 3s ease-in-out infinite;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@keyframes titleGlow {
+    0%, 100% { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700; }
+    50% { text-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700, 0 0 40px #ffd700; }
+}
+
+@keyframes titleGlow2 {
+    0%, 100% { text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b; }
+    50% { text-shadow: 0 0 20px #ff6b6b, 0 0 30px #ff6b6b, 0 0 40px #ff6b6b; }
+}
+
+/* Buddha ASCII Art */
+.buddha-container {
+    margin: 3rem 0;
+    position: relative;
+}
+
+.buddha-ascii {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+    line-height: 1.1;
+    color: #ffd700;
+    text-shadow: 0 0 5px #ffd700;
+    white-space: pre;
+    text-align: center;
+    animation: buddhaGlow 4s ease-in-out infinite;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+@keyframes buddhaGlow {
+    0%, 100% { 
+        text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700;
+        transform: scale(1);
+    }
+    50% { 
+        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;
+        transform: scale(1.02);
+    }
+}
+
+/* Quote Styles */
+.quote-container {
+    margin: 3rem 0;
+    opacity: 0;
+    animation: fadeInUp 1s ease 2s forwards;
+}
+
+.quote {
+    font-size: 1.5rem;
+    color: #87ceeb;
+    font-style: italic;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(135, 206, 235, 0.5);
+}
+
+.author {
+    font-size: 1rem;
+    color: #ddd;
+    opacity: 0.8;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Interactive Buttons */
+.interactive-buttons {
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.btn-glow {
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+.btn-glow:hover::before {
+    left: 100%;
+}
+
+.btn-glow:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.btn-glow:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Floating Elements */
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.floating-lotus,
+.floating-om,
+.floating-peace {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.3;
+}
+
+.floating-lotus {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-om {
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.floating-peace {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translateY(-20px) rotate(5deg);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-10px) rotate(-5deg);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translateY(-30px) rotate(3deg);
+        opacity: 0.7;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .buddha-ascii {
+        font-size: 0.6rem;
+    }
+    
+    .interactive-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .btn-glow {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .quote {
+        font-size: 1.2rem;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+    
+    .buddha-ascii {
+        font-size: 0.5rem;
+    }
+    
+    .quote {
+        font-size: 1rem;
+    }
+}
+
+/* Special Effects */
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ffd700;
+    border-radius: 50%;
+    animation: sparkle 2s linear infinite;
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+/* Buddha typing effect */
+.typing {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #ffd700; }
+}
